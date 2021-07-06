@@ -5,9 +5,10 @@ Feature: Articles
         * url apiUrl
         * def articleRequestBody = read('classpath:conduitApp/json/newArticleRequest.json') 
         * def dataGenerator = Java.type('helpers.DataGenerator')
-        * set articleRequestBody.article.title = dataGenerator.getRandomArticleValues().title
-        * set articleRequestBody.article.description = dataGenerator.getRandomArticleValues().description
-        * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
+        * def generatedArticleValues = dataGenerator.getRandomArticleValues()
+        * set articleRequestBody.article.title = generatedArticleValues.title
+        * set articleRequestBody.article.description = generatedArticleValues.description
+        * set articleRequestBody.article.body = generatedArticleValues.body
 
 
     Scenario: Create a new article
